@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sesion_3_moviles/lista_compra.dart';
-import 'package:sesion_3_moviles/lista_compra_aniadir_producto.dart';
-import 'package:sesion_3_moviles/lista_compra_pantalla_llena.dart';
-import 'package:sesion_3_moviles/lista_compra_pantalla_vacia.dart';
-import 'package:sesion_3_moviles/producto.dart';
+import 'package:sesion_3_moviles/modelo/modelo.dart';
+import 'package:sesion_3_moviles/pantallas/pantallas.dart';
 
 class ListaCompraPantalla extends StatelessWidget {
   const ListaCompraPantalla({super.key});

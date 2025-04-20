@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/lista_recetas_pantalla.dart';
-import 'package:sesion_3_moviles/lsita_compra_pantalla.dart';
+import 'package:sesion_3_moviles/pantallas/pantallas.dart';
 
 class MosterChefPaginaPrincipal extends StatefulWidget {
   final String _titulo;

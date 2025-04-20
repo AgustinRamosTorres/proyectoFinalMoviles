@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/moster_chef_pagina_principal.dart';
+import 'package:sesion_3_moviles/pantallas/pantallas.dart';
 import 'package:provider/provider.dart';
-import 'lista_compra.dart';
+import '../modelo/modelo.dart';
 
 class MonsterChefApp extends StatelessWidget {
   const MonsterChefApp({super.key});

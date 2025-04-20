@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/linea_producto.dart';
-import 'package:sesion_3_moviles/lista_compra.dart';
+import 'package:sesion_3_moviles/componentes/componentes.dart';
+import 'package:sesion_3_moviles/modelo/modelo.dart';
 
 import 'lista_compra_aniadir_producto.dart';
 

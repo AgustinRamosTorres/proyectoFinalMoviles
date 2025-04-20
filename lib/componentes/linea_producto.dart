@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/producto.dart';
+import 'package:sesion_3_moviles/modelo/modelo.dart';
 
 class LineaProducto extends StatelessWidget {
   final Producto producto;
