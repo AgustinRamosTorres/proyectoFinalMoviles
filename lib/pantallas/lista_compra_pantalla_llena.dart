@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/linea_producto.dart';
-import 'package:sesion_3_moviles/lista_compra.dart';
+import 'package:sesion_3_moviles/componentes/componentes.dart';
+import 'package:sesion_3_moviles/modelo/modelo.dart';
 
 import 'lista_compra_aniadir_producto.dart';
 
 class ListaCompraPantallaLlena extends StatelessWidget {
   final ListaCompra listaCompra;
 
-  const ListaCompraPantallaLlena({Key? key, required this.listaCompra})
-    : super(key: key);
+  const ListaCompraPantallaLlena({super.key, required this.listaCompra});
 
   @override
   Widget build(BuildContext context) {

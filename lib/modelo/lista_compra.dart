@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
-import 'package:sesion_3_moviles/producto.dart';
+import 'package:sesion_3_moviles/modelo/producto.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ListaCompra extends ChangeNotifier {
@@ -76,7 +76,7 @@ class ListaCompra extends ChangeNotifier {
         _productos.add(Producto.desdeJson(prodJson));
       }
       notifyListeners();
-    }on FileSystemException catch(e){
+    }on FileSystemException {
       return;
     }
   }

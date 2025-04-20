@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/producto.dart';
+import 'package:sesion_3_moviles/modelo/modelo.dart';
 
 class LineaProducto extends StatelessWidget {
   final Producto producto;
@@ -9,18 +9,17 @@ class LineaProducto extends StatelessWidget {
 
 
   // 20
-  LineaProducto({Key? key, required this.producto, required this.completar})
+  LineaProducto({super.key, required this.producto, required this.completar})
     : textDecoration =
           producto.completado
               ? TextDecoration.lineThrough
-              : TextDecoration.none,
-      super(key: key);
+              : TextDecoration.none;
 
   @override
   Widget build(BuildContext context) {
     var titleLarge = Theme.of(context).textTheme.titleLarge;
     var decortitleLarge = titleLarge?.copyWith(decoration: textDecoration);
-    return Container(
+    return SizedBox(
       height: 60,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,7 +56,7 @@ class LineaProducto extends StatelessWidget {
       color:
           producto.importancia == Importancia.alta
               ? Colors.red
-              : temaTexto?.color,
+              : temaTexto.color,
     );
     return Text(
       producto.importancia.name,

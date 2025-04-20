@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sesion_3_moviles/producto.dart';
+import 'package:sesion_3_moviles/modelo/modelo.dart';
 import 'package:uuid/uuid.dart';
 
 class ListaCompraAniadirProducto extends StatefulWidget {
@@ -9,12 +9,11 @@ class ListaCompraAniadirProducto extends StatefulWidget {
   final bool actualizando;
 
   const ListaCompraAniadirProducto({
-    Key? key,
+    super.key,
     required this.crearProducto,
     required this.editarProducto,
     this.productoOriginal,
-  }) : actualizando = (productoOriginal != null),
-       super(key: key);
+  }) : actualizando = (productoOriginal != null);
 
   @override
   State<ListaCompraAniadirProducto> createState() =>
@@ -52,6 +51,7 @@ class _ListaCompraAniadirProductoState
     }
   }
 
+  @override
   void dispose() {
     _controladorNombre.dispose();
     super.dispose();
