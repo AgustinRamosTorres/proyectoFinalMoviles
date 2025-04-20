@@ -9,12 +9,11 @@ class ListaCompraAniadirProducto extends StatefulWidget {
   final bool actualizando;
 
   const ListaCompraAniadirProducto({
-    Key? key,
+    super.key,
     required this.crearProducto,
     required this.editarProducto,
     this.productoOriginal,
-  }) : actualizando = (productoOriginal != null),
-       super(key: key);
+  }) : actualizando = (productoOriginal != null);
 
   @override
   State<ListaCompraAniadirProducto> createState() =>
@@ -52,6 +51,7 @@ class _ListaCompraAniadirProductoState
     }
   }
 
+  @override
   void dispose() {
     _controladorNombre.dispose();
     super.dispose();

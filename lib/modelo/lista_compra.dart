@@ -76,7 +76,7 @@ class ListaCompra extends ChangeNotifier {
         _productos.add(Producto.desdeJson(prodJson));
       }
       notifyListeners();
-    }on FileSystemException catch(e){
+    }on FileSystemException {
       return;
     }
   }

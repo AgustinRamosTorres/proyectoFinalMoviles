@@ -7,8 +7,7 @@ import 'lista_compra_aniadir_producto.dart';
 class ListaCompraPantallaLlena extends StatelessWidget {
   final ListaCompra listaCompra;
 
-  const ListaCompraPantallaLlena({Key? key, required this.listaCompra})
-    : super(key: key);
+  const ListaCompraPantallaLlena({super.key, required this.listaCompra});
 
   @override
   Widget build(BuildContext context) {

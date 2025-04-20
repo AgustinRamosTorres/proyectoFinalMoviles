@@ -4,7 +4,7 @@ import 'package:sesion_3_moviles/pantallas/pantallas.dart';
 class MosterChefPaginaPrincipal extends StatefulWidget {
   final String _titulo;
 
-  MosterChefPaginaPrincipal({super.key, required titulo}): _titulo = titulo;
+  const MosterChefPaginaPrincipal({super.key, required titulo}): _titulo = titulo;
 
   @override
   State<MosterChefPaginaPrincipal> createState() =>
@@ -14,7 +14,7 @@ class MosterChefPaginaPrincipal extends StatefulWidget {
 class _MosterChefPaginaPrincipalState extends State<MosterChefPaginaPrincipal> {
   int _categoriaActiva = 0;
 
-  static var _paginas = <Widget>[ListaCompraPantalla(), ListaRecetasPantalla()];
+  static final _paginas = <Widget>[ListaCompraPantalla(), ListaRecetasPantalla()];
 
   @override
   Widget build(BuildContext context) {
