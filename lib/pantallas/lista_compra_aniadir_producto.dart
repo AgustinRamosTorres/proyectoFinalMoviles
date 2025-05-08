@@ -30,7 +30,7 @@ class _ListaCompraAniadirProductoState
   Importancia _importancia = Importancia.baja;
 
   //15
-  int _valorActualSlider = 0;
+  int _valorActualSlider = 1;
 
   @override
   void initState() {

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sesion_3_moviles/componentes/componentes.dart';
 import 'package:sesion_3_moviles/modelo/modelo.dart';
+import 'package:sesion_3_moviles/pantallas/lista_compra_pantalla.dart';
 
 import 'lista_compra_aniadir_producto.dart';
 
-class ListaCompraPantallaLlena extends StatelessWidget {
+class ListaListasPantallaLlena extends StatelessWidget {
   final ListaCompra listaCompra;
 
-  const ListaCompraPantallaLlena({super.key, required this.listaCompra});
+  const ListaListasPantallaLlena({super.key, required this.listaCompra});
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,8 @@ class ListaCompraPantallaLlena extends StatelessWidget {
             },
             child: InkWell(
               key: Key(producto.id),
+
+              /// Tenemos que poner la lista de listas
               child: LineaProducto(
                 producto: producto,
                 completar: (valor) {
@@ -50,15 +53,7 @@ class ListaCompraPantallaLlena extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder:
-                        (context) => ListaCompraAniadirProducto(
-                          productoOriginal: producto,
-                          editarProducto: (producto) {
-                            listaCompra.actualizaProducto(index, producto);
-                            Navigator.pop(context);
-                          },
-                          crearProducto: (producto) {},
-                        ),
+                    builder: (context) => ListaCompraPantalla(),
                   ),
                 );
               },
