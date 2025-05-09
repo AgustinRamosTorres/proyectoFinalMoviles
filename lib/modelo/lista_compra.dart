@@ -14,6 +14,40 @@ class ListaCompra extends ChangeNotifier {
     _leerProductos();
   }
 
+  void borraListaCompra(String idLista) {
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        indices.add(i);
+      }
+    }
+
+    for (int i = indices.length - 1; i >= 0; i--) {
+      _productos.removeAt(indices[i]);
+    }
+
+    _salvarProductos();
+    notifyListeners();
+  }
+
+  void borrarComprados(String idLista) {
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        indices.add(i);
+      }
+    }
+
+    for (int i = indices.length - 1; i >= 0; i--) {
+      if (_productos[indices[i]].completado == true) {
+        _productos.removeAt(indices[i]);
+      }
+    }
+
+    _salvarProductos();
+    notifyListeners();
+  }
+
   void borraProducto(int indice) {
     _productos.removeAt(indice);
     _salvarProductos();
@@ -32,9 +66,24 @@ class ListaCompra extends ChangeNotifier {
     notifyListeners();
   }
 
-  void marcaCompletado(int indice, bool completado) {
-    final producto = _productos[indice];
-    _productos[indice] = producto.copiaSinNulo(completado: completado);
+  void marcaCompletado(String idLista, int indice, bool completado) {
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        indices.add(i);
+      }
+    }
+
+    final producto = _productos[indices[indice]];
+
+    if (completado == true){
+      _productos.removeAt(indices[indice]);
+      _productos.add(producto.copiaSinNulo(completado: completado));
+    }else {
+      _productos.removeAt(indices[indice]);
+      _productos.insert(0,producto.copiaSinNulo(completado: completado));
+    }
+
     _salvarProductos();
     notifyListeners();
   }

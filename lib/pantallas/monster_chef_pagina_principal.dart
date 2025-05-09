@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sesion_3_moviles/pantallas/lista_listas_pantalla.dart';
 import 'package:sesion_3_moviles/pantallas/pantallas.dart';
 
 class MosterChefPaginaPrincipal extends StatefulWidget {
@@ -14,12 +15,13 @@ class MosterChefPaginaPrincipal extends StatefulWidget {
 class _MosterChefPaginaPrincipalState extends State<MosterChefPaginaPrincipal> {
   int _categoriaActiva = 0;
 
-  static final _paginas = <Widget>[ListaCompraPantalla(), ListaRecetasPantalla()];
+  static final _paginas = <Widget>[ListaListasPantalla(), ListaRecetasPantalla()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget._titulo)),
+      appBar: AppBar(title: Text(widget._titulo),centerTitle: true,),
+
       body: SafeArea(
         // 2
         child: _paginas[_categoriaActiva],

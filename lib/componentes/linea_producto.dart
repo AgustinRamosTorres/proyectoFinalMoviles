@@ -51,16 +51,10 @@ class LineaProducto extends StatelessWidget {
   }
 
   Widget construirImportancia(BuildContext contexto, Producto producto) {
-    var temaTexto = Theme.of(contexto).textTheme.bodyMedium;
-    var temaTextoColoreado = temaTexto?.copyWith(
-      color:
-          producto.importancia == Importancia.alta
-              ? Colors.red
-              : temaTexto.color,
-    );
+
     return Text(
       producto.importancia.name,
-      style: temaTextoColoreado!,
+      style: Theme.of(contexto).textTheme.bodyMedium!,
     );
   }
 }

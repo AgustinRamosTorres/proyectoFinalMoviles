@@ -1,7 +1,9 @@
 enum Importancia {
-  baja,
-  media,
-  alta;
+  General,
+  Lacteos,
+  Congelados,
+  Carnes,
+  Frutas,;
 
   static Importancia getImportanciaDesde({required String nombre}) {
     return Importancia.values.byName(nombre);
@@ -14,12 +16,14 @@ class Producto {
   final Importancia importancia;
   final int cantidad;
   final bool completado;
+  final String listaId;
 
   Producto({
     required this.id,
     required this.nombre,
     required this.importancia,
     required this.cantidad,
+    required this.listaId,
     this.completado = false,
   });
 
@@ -36,6 +40,7 @@ class Producto {
       importancia: importancia ?? this.importancia,
       cantidad: cantidad ?? this.cantidad,
       completado: completado ?? this.completado,
+      listaId: listaId,
     );
   }
 
@@ -46,7 +51,8 @@ class Producto {
           "nombre": "$nombre",
           "importancia": "${importancia.name}",
           "cantidad": $cantidad,
-          "completado": $completado
+          "completado": $completado,
+          "listaId": "$listaId"
         }
     ''';
 
@@ -60,6 +66,7 @@ class Producto {
       importancia: Importancia.getImportanciaDesde(nombre: json['importancia']),
       cantidad: json['cantidad'] as int,
       completado: json['completado'] as bool,
+      listaId: json['listaId'] as String,
     );
   }
 }
