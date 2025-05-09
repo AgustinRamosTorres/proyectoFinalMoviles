@@ -44,6 +44,7 @@ class ListaCompraPantallaLlena extends StatelessWidget {
                 completar: (valor) {
                   if (valor != null) {
                     listaCompra.marcaCompletado(idLista, index, valor);
+
                   }
                 },
               ),
