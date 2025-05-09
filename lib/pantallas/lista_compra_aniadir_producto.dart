@@ -29,7 +29,7 @@ class _ListaCompraAniadirProductoState
   bool _completado = false;
 
   //12
-  Importancia _importancia = Importancia.baja;
+  Importancia _importancia = Importancia.General;
 
   //15
   int _valorActualSlider = 1;
@@ -127,7 +127,7 @@ class _ListaCompraAniadirProductoState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text("Importancia", style: Theme.of(context).textTheme.titleSmall),
+        Text("Tipo de Producto", style: Theme.of(context).textTheme.titleSmall),
         Wrap(
           spacing: 10.0,
           children:

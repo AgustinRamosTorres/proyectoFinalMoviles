@@ -1,7 +1,9 @@
 enum Importancia {
-  baja,
-  media,
-  alta;
+  General,
+  Lacteos,
+  Congelados,
+  Carnes,
+  Frutas,;
 
   static Importancia getImportanciaDesde({required String nombre}) {
     return Importancia.values.byName(nombre);

@@ -29,7 +29,7 @@ class _ListaListaAniadirListaState
   bool _completado = false;
 
   //12
-  Importancia _importancia = Importancia.baja;
+  Importancia _importancia = Importancia.General;
 
   //15
   int _valorActualSlider = 1;
