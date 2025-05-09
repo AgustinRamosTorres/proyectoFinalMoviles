@@ -26,7 +26,8 @@ class ListaCompraPantalla extends StatelessWidget {
             onPressed: () {
               // 8
               final manager = Provider.of<ListaCompra>(context, listen: false);
-              ///manager.borraProducto();
+              manager.borrarComprados(_idLista);
+
             },
           ),
           IconButton(
@@ -34,7 +35,7 @@ class ListaCompraPantalla extends StatelessWidget {
             onPressed: () {
               // 8
               final manager = Provider.of<ListaCompra>(context, listen: false);
-              ///manager.borraProducto();
+              manager.borraListaCompra(_idLista);
             },
           ),
         ],

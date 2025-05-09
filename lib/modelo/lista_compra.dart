@@ -14,6 +14,40 @@ class ListaCompra extends ChangeNotifier {
     _leerProductos();
   }
 
+  void borraListaCompra(String idLista) {
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        indices.add(i);
+      }
+    }
+
+    for (int i = indices.length - 1; i >= 0; i--) {
+      _productos.removeAt(indices[i]);
+    }
+
+    _salvarProductos();
+    notifyListeners();
+  }
+
+  void borrarComprados(String idLista) {
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        indices.add(i);
+      }
+    }
+
+    for (int i = indices.length - 1; i >= 0; i--) {
+      if (_productos[indices[i]].completado == true) {
+        _productos.removeAt(indices[i]);
+      }
+    }
+
+    _salvarProductos();
+    notifyListeners();
+  }
+
   void borraProducto(int indice) {
     _productos.removeAt(indice);
     _salvarProductos();
