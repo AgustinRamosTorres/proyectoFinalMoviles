@@ -7,12 +7,14 @@ class ListaCompraAniadirProducto extends StatefulWidget {
   final Function(Producto) editarProducto;
   final Producto? productoOriginal;
   final bool actualizando;
+  String idLista = "";
 
-  const ListaCompraAniadirProducto({
+  ListaCompraAniadirProducto({
     super.key,
     required this.crearProducto,
     required this.editarProducto,
     this.productoOriginal,
+    required this.idLista
   }) : actualizando = (productoOriginal != null);
 
   @override
@@ -74,6 +76,7 @@ class _ListaCompraAniadirProductoState
                 importancia: _importancia,
                 // 17
                 cantidad: _valorActualSlider,
+                listaId: widget.idLista,
               );
 
               if (widget.actualizando) {

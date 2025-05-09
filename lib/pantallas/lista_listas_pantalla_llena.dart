@@ -92,7 +92,7 @@ class ListaListasPantallaLlena extends StatelessWidget {
                     builder:
                         (context) => ChangeNotifierProvider.value(
                           value: listaCompra,
-                          child: ListaCompraPantalla(),
+                          child: ListaCompraPantalla(idLista: lista.id,),
                         ),
                   ),
                 );

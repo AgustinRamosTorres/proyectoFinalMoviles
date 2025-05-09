@@ -7,7 +7,11 @@ import 'package:uuid/uuid.dart';
 import '../modelo/lista.dart';
 
 class ListaCompraPantalla extends StatelessWidget {
-  const ListaCompraPantalla({super.key});
+  String _idLista = "";
+
+
+  ListaCompraPantalla({super.key, required String idLista})
+      : _idLista = idLista;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +19,25 @@ class ListaCompraPantalla extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Productos'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart_checkout),
+            onPressed: () {
+              // 8
+              final manager = Provider.of<ListaCompra>(context, listen: false);
+              ///manager.borraProducto();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete_forever),
+            onPressed: () {
+              // 8
+              final manager = Provider.of<ListaCompra>(context, listen: false);
+              ///manager.borraProducto();
+            },
+          ),
+        ],
       ),
       // 6
       body: construirPantallaListaCompra(),
@@ -36,6 +59,7 @@ class ListaCompraPantalla extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   editarProducto: (producto) {},
+                  idLista: _idLista,
                 );
               },
             ),
@@ -49,13 +73,24 @@ class ListaCompraPantalla extends StatelessWidget {
   Widget construirPantallaListaCompra() {
     return Consumer<ListaCompra>(
       builder: (context, manager, child) {
-        if (manager.productos.isNotEmpty) {
+        if (funcionCompruebaSiHayProductos(_idLista, manager)) {
           // 11
-          return ListaCompraPantallaLlena(listaCompra: manager);
+          return ListaCompraPantallaLlena(listaCompra: manager, idLista: _idLista);
         } else {
           return const ListaCompraPantallaVacia();
         }
       },
     );
   }
+
+  bool funcionCompruebaSiHayProductos(String idLista, manager) {
+    for (var i = 0; i < manager.productos.length; i++) {
+      if (manager.productos[i].listaId == idLista) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
 }

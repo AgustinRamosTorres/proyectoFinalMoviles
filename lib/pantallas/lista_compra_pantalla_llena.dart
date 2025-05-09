@@ -6,12 +6,13 @@ import 'lista_compra_aniadir_producto.dart';
 
 class ListaCompraPantallaLlena extends StatelessWidget {
   final ListaCompra listaCompra;
+  String idLista = "";
 
-  const ListaCompraPantallaLlena({super.key, required this.listaCompra});
+  ListaCompraPantallaLlena({super.key, required this.listaCompra, required this.idLista});
 
   @override
   Widget build(BuildContext context) {
-    final productos = listaCompra.productos;
+    final productos = getProductosLista();
     return Padding(
       padding: const EdgeInsets.all(10),
       child: ListView.separated(
@@ -58,6 +59,7 @@ class ListaCompraPantallaLlena extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           crearProducto: (producto) {},
+                          idLista: idLista,
                         ),
                   ),
                 );
@@ -67,5 +69,16 @@ class ListaCompraPantallaLlena extends StatelessWidget {
         },
       ),
     );
+  }
+
+
+  List<Producto> getProductosLista() {
+    List<Producto> productos = [];
+    for (var i = 0; i < listaCompra.productos.length; i++) {
+      if (listaCompra.productos[i].listaId == idLista) {
+        productos.add(listaCompra.productos[i]);
+      }
+    }
+    return productos;
   }
 }
