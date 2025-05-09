@@ -75,6 +75,8 @@ class _ListaListaAniadirListaState
               } else {
                 widget.crearLista(lista);
               }
+
+              //Navigator.pop(context, lista); // Devuelve la lista editada
             },
           ),
         ],

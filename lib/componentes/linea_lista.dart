@@ -12,7 +12,7 @@ class LineaLista extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var titleLarge = Theme.of(context).textTheme.titleLarge;
+    //var titleLarge = Theme.of(context).textTheme.titleLarge;
     //var decortitleLarge = titleLarge?.copyWith(decoration: textDecoration);
     return SizedBox(
       height: 60,

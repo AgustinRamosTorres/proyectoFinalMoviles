@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sesion_3_moviles/modelo/modelo.dart';
 import 'package:sesion_3_moviles/pantallas/pantallas.dart';
+import 'package:uuid/uuid.dart';
+
+import '../modelo/lista.dart';
 
 class ListaCompraPantalla extends StatelessWidget {
   const ListaCompraPantalla({super.key});
@@ -10,6 +13,9 @@ class ListaCompraPantalla extends StatelessWidget {
   Widget build(BuildContext context) {
     //4
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Productos'),
+      ),
       // 6
       body: construirPantallaListaCompra(),
       floatingActionButton: FloatingActionButton(
