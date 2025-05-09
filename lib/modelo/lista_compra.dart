@@ -32,9 +32,19 @@ class ListaCompra extends ChangeNotifier {
     notifyListeners();
   }
 
-  void marcaCompletado(int indice, bool completado) {
-    final producto = _productos[indice];
-    _productos[indice] = producto.copiaSinNulo(completado: completado);
+  void marcaCompletado(String idLista, int indice, bool completado) {
+    List<Producto> productos = [];
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        productos.add(_productos[i]);
+        indices.add(i);
+      }
+    }
+
+    final producto = _productos[indices[indice]];
+    _productos.removeAt(indices[indice]);
+    _productos.add(producto.copiaSinNulo(completado: completado));
     _salvarProductos();
     notifyListeners();
   }
