@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sesion_3_moviles/pantallas/pantallas.dart';
 import 'package:provider/provider.dart';
+import '../modelo/lista_listas.dart';
 import '../modelo/modelo.dart';
 
 class MonsterChefApp extends StatelessWidget {
@@ -9,14 +10,16 @@ class MonsterChefApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final listaCompra = ListaCompra();
+    final listaListas = ListaListas();
     listaCompra.init();
+    listaListas.init();
 
     return MaterialApp(
       title: "Monster Chef Application",
       //5
       home: MultiProvider(
         // 24
-        providers: [ChangeNotifierProvider(create: (context) => listaCompra)],
+        providers: [ChangeNotifierProvider(create: (context) => listaCompra), ChangeNotifierProvider(create: (context) => listaListas)],
         child: MosterChefPaginaPrincipal(titulo: "Monster Chef"),
       ),
       theme: ThemeData(
