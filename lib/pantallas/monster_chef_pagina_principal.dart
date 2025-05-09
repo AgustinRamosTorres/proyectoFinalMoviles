@@ -20,7 +20,8 @@ class _MosterChefPaginaPrincipalState extends State<MosterChefPaginaPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget._titulo)),
+      appBar: AppBar(title: Text(widget._titulo),centerTitle: true,),
+
       body: SafeArea(
         // 2
         child: _paginas[_categoriaActiva],

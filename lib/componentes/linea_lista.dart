@@ -26,7 +26,7 @@ class LineaLista extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(lista.nombre), // aqui va estilo
+                  Text(lista.nombre, style: Theme.of(context).textTheme.titleLarge,), // aqui va estilo
                   const SizedBox(height: 4),
                 ],
               ),
