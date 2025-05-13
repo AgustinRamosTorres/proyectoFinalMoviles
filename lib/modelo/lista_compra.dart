@@ -88,6 +88,31 @@ class ListaCompra extends ChangeNotifier {
     notifyListeners();
   }
 
+  void ordenarPorImportancia(String idLista, int valueImportancia) {
+    List<int> indices = [];
+    for (var i = 0; i < _productos.length; i++) {
+      if (_productos[i].listaId == idLista) {
+        indices.add(i);
+      }
+    }
+
+    for (int i = indices.length - 1; i >= 0; i--) {
+      if (_productos[indices[i]].importancia.index == valueImportancia &&
+          _productos[indices[i]].completado == false) {
+        final producto = _productos[indices[i]];
+
+        _productos.removeAt(indices[i]);
+        _productos.insert(0,producto.copiaSinNulo());
+      }
+    }
+
+
+    _salvarProductos();
+    notifyListeners();
+
+  }
+
+
   // Accedo al directorio y creo el directorio
   Future<String> get _localPath async{
     final directory = await getApplicationDocumentsDirectory();

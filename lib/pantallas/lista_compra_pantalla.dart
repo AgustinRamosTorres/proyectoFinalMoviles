@@ -9,9 +9,8 @@ import '../modelo/lista.dart';
 class ListaCompraPantalla extends StatelessWidget {
   String _idLista = "";
 
-
   ListaCompraPantalla({super.key, required String idLista})
-      : _idLista = idLista;
+    : _idLista = idLista;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,6 @@ class ListaCompraPantalla extends StatelessWidget {
               // 8
               final manager = Provider.of<ListaCompra>(context, listen: false);
               manager.borrarComprados(_idLista);
-
             },
           ),
           IconButton(
@@ -36,6 +34,15 @@ class ListaCompraPantalla extends StatelessWidget {
               // 8
               final manager = Provider.of<ListaCompra>(context, listen: false);
               manager.borraListaCompra(_idLista);
+            },
+          ),
+          PopupMenuButton(
+            onSelected: (int item) {
+              final manager = Provider.of<ListaCompra>(context, listen: false);
+              manager.ordenarPorImportancia(_idLista, item);
+            },
+            itemBuilder: (BuildContext context) {
+              return Importancia.obtenerPopupMenuItemsDesdeEnum();
             },
           ),
         ],
@@ -76,7 +83,10 @@ class ListaCompraPantalla extends StatelessWidget {
       builder: (context, manager, child) {
         if (funcionCompruebaSiHayProductos(_idLista, manager)) {
           // 11
-          return ListaCompraPantallaLlena(listaCompra: manager, idLista: _idLista);
+          return ListaCompraPantallaLlena(
+            listaCompra: manager,
+            idLista: _idLista,
+          );
         } else {
           return const ListaCompraPantallaVacia();
         }
@@ -92,6 +102,4 @@ class ListaCompraPantalla extends StatelessWidget {
     }
     return false;
   }
-
-
 }
