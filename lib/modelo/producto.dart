@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum Importancia {
   General,
   Lacteos,
@@ -8,6 +10,16 @@ enum Importancia {
   static Importancia getImportanciaDesde({required String nombre}) {
     return Importancia.values.byName(nombre);
   }
+
+  static List<PopupMenuItem<int>> obtenerPopupMenuItemsDesdeEnum() {
+    return Importancia.values.map((importancia) {
+      return PopupMenuItem<int>(
+        value: importancia.index,
+        child: Text("Ordenar por: " + importancia.name),
+      );
+    }).toList();
+  }
+
 }
 
 class Producto {
