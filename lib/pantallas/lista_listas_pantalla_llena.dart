@@ -45,7 +45,6 @@ class ListaListasPantallaLlena extends StatelessWidget {
             ),
             confirmDismiss: (direction) async {
               if (direction == DismissDirection.startToEnd) {
-                // Acción al deslizar hacia la derecha (editar)
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -60,16 +59,14 @@ class ListaListasPantallaLlena extends StatelessWidget {
                         ),
                   ),
                 );
-                return false; // Evita que el widget sea eliminado
+                return false;
               }else if (direction == DismissDirection.endToStart) {
-                // Acción al deslizar hacia la izquierda (eliminar)
-                return true; // Permite que el widget sea eliminado
+                return true;
               }
               return false;
             },
             onDismissed: (direction) {
               if (direction == DismissDirection.endToStart) {
-                // Acción al deslizar hacia la izquierda
                 listaListas.borraLista(index);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('${lista.nombre} eliminado')),
@@ -78,7 +75,6 @@ class ListaListasPantallaLlena extends StatelessWidget {
             },
             child: InkWell(
               key: Key(lista.id),
-
               /// Tenemos que poner la lista de listas
               child: LineaLista(lista: lista),
               onTap: () {
